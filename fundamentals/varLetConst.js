@@ -33,4 +33,27 @@ let numberLet = 1;
     let numberLet = 2;
     console.log("inside = ", numberLet);
 }
+
 console.log("outside = ", numberLet);
+
+{
+    const funcsVar = [];
+    for (var i = 0; i < 10; i++) {
+        funcsVar.push(function() {
+            console.log(i);
+        });
+    }
+    funcsVar[0]();
+    funcsVar[4]();
+}
+
+{
+    const funcsLet = [];
+    for (let i = 0; i < 10; i++) {
+        funcsLet.push(function() {
+            console.log(i);
+        });
+    }
+    funcsLet[0]();
+    funcsLet[4]();
+}
