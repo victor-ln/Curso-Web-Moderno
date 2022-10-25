@@ -12,8 +12,12 @@ const speak = person.speak;
 speak();
 
 /**
+ * In most cases, the value of 'this' is determined by how a function is called 
+ * (runtime binding). It can't be set by assignment during execution, 
+ * and it may be different each time the function is called. 
+ * 
  * bind() creates a bound function that has the same body as the
- * original function. The this object of the bound function is associated with
+ * original function. The 'this' object of the bound function is associated with
  * the specified object, and has the specified initial parameters
 */
 const speakFromPerson = person.speak.bind(person);
