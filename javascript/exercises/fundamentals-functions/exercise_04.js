@@ -1,3 +1,11 @@
+/**
+ * It returns 'Equilateral' if all sides are equal, 'Isosceles' if two sides are
+ * equal, and 'Scalene' if no sides are equal
+ * @param a - side a
+ * @param b - the length of the second side of the triangle
+ * @param c - the length of the side of the triangle
+ * @returns The type of triangle.
+ */
 const getTriangleType = (a, b, c) => {
     if (a == b) {
         if (a != c || b != c)
