@@ -13,5 +13,5 @@ let min = Math.random() * 50;
 for (let i = -min; i < min; i++)
     arr.push(Math.floor(Math.random() * i));
 
-console.log(arr.sort());
+console.log(arr.sort((x, y) => x - y));
 countNegatives(arr);

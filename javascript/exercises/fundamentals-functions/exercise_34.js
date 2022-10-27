@@ -11,5 +11,5 @@ let arr = [];
 for (let i = 0; i < 100; i++)
     arr.push(Math.floor(Math.random() * i));
 
-console.log(arr.sort());
+console.log(arr.sort((x, y) => x - y));
 console.log(calcVectorAverage(arr));
