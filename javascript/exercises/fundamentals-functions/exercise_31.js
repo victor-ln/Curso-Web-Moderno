@@ -6,7 +6,7 @@ function countNbrsInRange(vector) {
     let inside = 0;
     let outside = 0;
 
-    for (i in vector) {
+    for (let i in vector) {
         if (vector[i].inRange(10, 20))
             inside++;
         else

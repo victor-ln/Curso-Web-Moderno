@@ -2,7 +2,7 @@ function countEvenAndOddNumbers(vector) {
     let even = 0;
     let odd = 0;
 
-    for (i in vector) {
+    for (let i in vector) {
         if (vector[i] % 2 == 0) {
             even++;
         } else {
