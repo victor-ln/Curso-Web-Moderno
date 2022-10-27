@@ -15,10 +15,10 @@ function multVectorIfNbIsGreaterEqualThanFive(vector, nb) {
 
 let arr = [];
 for (let i = 0; i < 100; i++)
-    arr1.push(Math.floor(Math.random() * i));
+    arr.push(Math.floor(Math.random() * i));
 
-arr1 = arr1.sort((x, y) => x - y);
+arr = arr.sort((x, y) => x - y);
 
-console.log(arr1);
-console.log(multVector(arr1, 2));
-console.log(multVectorIfNbIsGreaterEqualThanFive(arr1, 5));
+console.log(arr);
+console.log(multVector(arr, 2));
+console.log(multVectorIfNbIsGreaterEqualThanFive(arr, 5));
