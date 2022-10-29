@@ -14,3 +14,16 @@ const shoppingCart = [
 
 let total = shoppingCart.reduce((prev, curr) => prev + curr.price, 0);
 console.log(total);
+
+const students = [
+    { name: 'Luiz', grade: 7.8, scholarship: true },
+    { name: 'Mike', grade: 9.4, scholarship: false },
+    { name: 'Rachel', grade: 9.1, scholarship: true },
+    { name: 'Michelle', grade: 8.4, scholarship: false }
+]
+
+/* Are all students scholarship holders? */
+console.log(students.reduce((prev, curr) => prev && curr.scholarship, true));
+
+/* Are any students on scholarships? */
+console.log(students.reduce((prev, curr) => prev || curr.scholarship, false));
