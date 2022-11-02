@@ -1,0 +1,14 @@
+{
+  "name": "usingaxios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "usingAxios.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "victor-ln",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.1.3"
+  }
+}
