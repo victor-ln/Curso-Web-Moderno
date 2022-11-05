@@ -8,11 +8,10 @@
  */
 
 function speakAfterNSecs(seconds, message) {
-    return new Promise((resolve, reject) => {
-        setTimeout(_ => {
-            resolve(message)
-        }, 1000 * seconds)
-    })
+    const timer = resolve => {
+        setTimeout(() => resolve(message), 1000 * seconds)
+    }
+    return new Promise(timer)
 }
 
 speakAfterNSecs(3, 'Hello world')
