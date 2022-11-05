@@ -35,15 +35,19 @@ getClass('A').then(students => {
 })
 */
 
-Promise.all([getClass('A'), getClass('B'), getClass('C')])
-    .then(classes => [].concat(...classes))
-    .then(students => students.map(s => s.nome))
-    .then(names => console.log(names))
+const groupClasses = classes => [].concat(...classes)
+const getStudentsNames = students => students.map(s => s.nome)
+
+Promise.all([
+        getClass('A'), 
+        getClass('B'), 
+        getClass('C')
+    ])
+    .then(groupClasses)
+    .then(getStudentsNames)
+    .then(console.log)
     .catch(e => console.log(e.message))
 
 getClass('D').catch(e => console.log(e.message))
 
-getClass('E').then(
-    classes => console.log(classes), 
-    e => console.log(e.message)
-)
+getClass('E').then(console.log, e => console.log(e.message))
