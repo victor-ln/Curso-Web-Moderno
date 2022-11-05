@@ -7,6 +7,13 @@
  * As these methods return promises, they can be chained.
  */
 
+/**
+ * SpeakAfterNSecs returns a promise that resolves to the message after the
+ * specified number of seconds.
+ * @param seconds - The number of seconds to wait before resolving the promise.
+ * @param message - The message to be spoken
+ * @returns A promise that will resolve after the specified number of seconds.
+ */
 function speakAfterNSecs(seconds, message) {
     const timer = resolve => {
         setTimeout(() => resolve(message), 1000 * seconds)
