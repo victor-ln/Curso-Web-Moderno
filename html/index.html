@@ -20,23 +20,32 @@
             <a href="exercises/01 - textTags(part1).html">01 - Text Tags (part 1)</a> |
             <a href="exercises/02 - textTags(part2).html">02 - Text Tags (part 2)</a> |
             <a href="exercises/03 - lists.html">03 - Lists</a> |
-            <a href="exercises/04 - nestedList.html">04 - Nested List</a> |
+            <a href="exercises/04 - nestedList.html">04 - Nested List (challenge)</a> |
         </nav>
         <section id="content"></section>
         <footer>
             Copyright © 2022 Victor Nunes
         </footer>
         <script>
-            document.querySelectorAll('a').forEach(link => {
-                link.onclick = function(e) {
-                    e.preventDefault();
+            const body = document.body
+            const button = document.getElementsByClassName('myButton')[0]
+            const getScripts = _ => document.getElementsByTagName('script')
+            const executeResponseScript = scripts => {
+                if (scripts.length > 1)
+                    eval(scripts[0].innerHTML)
+            }
 
-                    const content = document.getElementById('content');
+            const content = document.getElementById('content')
+            document.querySelectorAll('a').forEach(link => {
+                link.onclick = e => {
+                    e.preventDefault()
                     fetch(link.href)
                         .then(resp => resp.text())
-                        .then(html => content.innerHTML = html);
+                        .then(html => content.innerHTML = html)
+                        .then(getScripts)
+                        .then(executeResponseScript)
                 }
-            });
+            })
         </script>
     </body>
 </html>
