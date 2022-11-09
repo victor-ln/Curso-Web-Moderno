@@ -1,0 +1,86 @@
+<h1>Form</h1>
+
+<form method="post">
+    <input type="hidden" name="id" value="3">
+
+    <label for="name"> Enter your name:</label>
+    <input type="text" name="name" id="name">
+    
+    <label for="passwd"> Enter a password:</label>
+    <input type="password" name="passwd" id="passwd">
+    <!--
+        The <textarea> tag defines a multi-line text input control.
+
+        The <textarea> element is often used in a form, to collect 
+        user inputs like comments or reviews.
+    -->
+    <label for="bio">Bio:</label>
+    <textarea name="Bio" id="bio" cols="30" rows="10"></textarea>
+
+    <div id="ageForm">
+        <p>Please select your age:</p>
+        <input type="radio" name="type" id="age1" value="30">
+        <label for="age1">0 - 30</label><br>
+        <input type="radio" name="type" id="age2" value="60">
+        <label for="age2">31 - 60</label><br>
+        <input type="radio" name="type" id="age3" value="100">
+        <label for="age3">61 - 100</label><br>
+    </div>
+
+    <!--
+        The <select> element is used to create a drop-down list.
+
+            The <select> element is most often used in a form, to collect user input.
+    -->
+    <label for="paths">Choose your preferred area:</label>
+    <select name="paths" id="paths">
+        <option value="">Select</option>
+        <option value="front-end">Front-End</option>
+        <option value="back-end">Back-End</option>
+        <option value="dev-ops">Dev-Ops</option>
+    </select>
+
+    <label for="languages">Which programming languages you know?</label>
+    <select name="languages" id="languages" multiple size="5">
+        <option value="C">C</option>
+        <option value="Go">Go</option>
+        <option value="Elixir">Elixir</option>
+        <option value="Javascript">Javascript</option>
+        <option value="Java">Java</option>
+        <option value="PHP">PHP</option>
+        <option value="Python">Python</option>
+        <option value="Ruby">Ruby</option>
+        <option value="Rust">Rust</option>
+    </select>
+
+    <div>
+        <label for="subcribeNews"> Subscribe to newsletter?</label>
+        <input type="checkbox" id="subcribeNews" name="subscribe"/>
+    </div>
+
+    <button formaction="http://localhost:8080/users">Submit</button>
+    <button formaction="http://localhost:8080/users/3">Update</button>
+</form>
+
+<style>
+    form {
+        padding: 1em;
+    }
+
+    input, textarea, select {
+        display: block;
+        margin-bottom: 0.5em;
+    }
+
+    input[type=checkbox] {
+        display: inline;
+    }
+
+    div input {
+        display: inline;
+    }
+
+    #ageForm {
+        margin-bottom: 1em;
+    }
+</style>
