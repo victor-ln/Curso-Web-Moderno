@@ -1,12 +1,58 @@
 <div class="slider-wrapper">
     <div class="slider">
-        <img class="images" src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="Ocean" title="Ocean by Tarso Bessa">
-        <img class="images" src="http://files.cod3r.com.br/curso-web/imagem4.jpg" alt="City">
-        <img class="images" src="http://files.cod3r.com.br/curso-web/imagem3.png" alt="Rio de Janeiro">
+        <p>
+            <img class="images" src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="Ocean" title="Ocean by Tarso Bessa">
+        </p>
+        <p>
+            <img class="images"
+            src="http://files.cod3r.com.br/curso-web/imagem3.png"
+            alt="Rio de Janeiro">
+        </p>
+        <p>
+            <img class="images" src="http://files.cod3r.com.br/curso-web/imagem2.gif">
+        </p>
+        <p class="text">
+            <img src="http://files.cod3r.com.br/curso-web/avatar.jpg"
+            alt="avatar" height="50" align="left">
+            Lorem ipsum dolor sit amet. Ut magnam sint est dolorem aliquam qui omnis 
+            corrupti et sunt iure? Aut voluptas debitis et consequatur minus eum fuga 
+            sapiente ad earum voluptas rem magnam labore. Ut voluptatum quisquam nam 
+            nemo magni aut veniam maxime qui consequatur earum aut Quis provident qui 
+            consequatur magni sit iure itaque! Sit placeat architecto non illo dolorem 
+            est laborum galisum qui sint earum?
+        </p>
+
+        <p class="city images"></p>
+
+        <p>
+            <picture>
+                <source class="images" srcset="http://files.cod3r.com.br/curso-web/logo-larga.png"
+                    media="(min-width: 513px)">
+                <img class="images" src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="Logo">
+            </picture>
+        </p>
     </div>
 </div>
 
 <style>
+
+    .text {
+        width: 513px;
+    }
+
+    .text img {
+        margin-right: 10px;
+    }
+
+    .city {
+        width: 513px;
+        height: 342px;
+        background-image: url('http://files.cod3r.com.br/curso-web/imagem4.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 200%;
+    }
+
     .slider-wrapper {
         position: relative;
         margin: 3%;
@@ -19,27 +65,26 @@
         position: absolute;
         height: 100%;
         /* All images width plus the width of one image */
-        width: 2052px;
+        width: 3591px;
         display: flex;
-        animation: slide 10s linear infinite;
+        animation: slide 15s linear infinite;
+        align-items: center;
     }
     
     .images {
         position: relative;
-        margin: 0.1%;
         width: 513px;
-        background-color: rgb(32, 140, 180);
     }
 
     @keyframes slide {
         100% {
-            transform: translateX(-1539px);
+            transform: translateX(-3078px);
         }
     }
 </style>
 
 <script>
     const slider = document.querySelector('.slider')
-    const firstImageClone = document.querySelectorAll('.images')[0].cloneNode(true)
+    const firstImageClone = slider.firstElementChild.cloneNode(true)
     slider.appendChild(firstImageClone)
 </script>
