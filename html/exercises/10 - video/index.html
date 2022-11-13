@@ -1,57 +1,53 @@
-<video id="myVideo" width="800" height="450" controlsList="nodownload">
+<!-- 'controlsList="nodownload"' helps to prevent the user from downloading the video -->
+<video id="myVideo" width="800" height="450" controlsList="nodownload"> 
     <source src="./exercises/10 - video/ink-water-underwater.mp4" type="video/mp4">
     Your browser does not support the video tag.
 </video>
 
-<div progressBar="myVideo" class="progress">
-    <div></div>
-</div>
+<progress value="0" max="1"></progress>
 
 <div>
-    <button class="myButton" play="myVideo">Play</button>
+    <button class="myButton" play="myVideo">&#9654;</button>
     <button class="myButton" pause="myVideo">Pause</button>
 </div>
 
 <style>
     #myVideo {
-        border: 1px solid #ddd;
+        border: 1px solid #bab1ba;
         border-radius: 15px;
-        pointer-events: none;
+        pointer-events: none; /* It helps to prevent the user from downloading the video */
     }
-
-    .progress {
-        height: 20px;
+    progress {
+        height: 15px;
         width: 800px;
-        border: 1px solid gray;
-        margin-top: 1%;
+        margin-top: 0.5%;
         margin-bottom: 1%;
+        border-radius: 10px;
     }
-
-    .progress > div {
+    progress:hover {
+        cursor: pointer;
+    }
+    progress::-webkit-progress-value {
         background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 30%, rgba(0,212,255,1) 100%);
-        color: white;
-        height: 100%;
-        text-align: right;
-        font-size: 14px;
-        will-change: width;
-        width: 0%;
+        border-radius: 7px;
     }
-
+    progress::-webkit-progress-bar {
+        background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+        border-radius: 7px;
+    }
     .myButton {
         box-shadow:  1px 2px 0px 0px #899599;
         background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
         background-color: #ededed;
-        border-radius: 8px;
+        border-radius: 10px;
         border: 1px solid #d6bcd6;
-        display: inline-block;
         cursor: pointer;
-        color: rgba(9,9,121,1);
-        font-family: Arial;
+        color: rgb(30, 30, 30);
+        font-variant: small-caps;
+        font-family: 'Comic Sans MS';
         font-size: 12px;
         font-weight: 600;
         padding: 7px 25px;
-        text-decoration: none;
-        text-shadow: 0px 1px 0px #e1e2ed;
     }
     .myButton:hover {
         background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
@@ -64,7 +60,7 @@
 </style>
 
 <script>
-    const progressBar = document.querySelector('.progress > div')
+    const progressBar = document.querySelector('progress')
     const video = document.getElementById('myVideo')
     const playButton = document.querySelector('[play=myVideo]')
     const pauseButton = document.querySelector('[pause=myVideo]')
@@ -72,7 +68,9 @@
     video.oncontextmenu = false /* It helps to prevent the user from downloading the video */
     playButton.onclick = event => video.play()
     pauseButton.onclick = event => video.pause()
-    video.ontimeupdate = _ => {
-        progressBar.style.width = `${video.currentTime / video.duration * 100}%`
+    video.ontimeupdate = _ => progressBar.value = video.currentTime / video.duration
+    progressBar.onclick = function(e) {
+        let pos = e.offsetX * this.max / this.offsetWidth
+        video.currentTime = video.duration * pos
     }
 </script>
