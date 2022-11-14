@@ -15,6 +15,19 @@
             a {
                 text-decoration: none;
                 color: lightseagreen;
+                font-family: Verdana;
+                font-size: 14px;
+                padding: 0.5% 1.5%;
+                border-radius: 2px;
+                background-color: #011;
+            }
+            a:hover {
+                background-color: #233;
+                box-shadow: 0 12px 16px 0 rgba(64,64,64,0.24), 0 17px 50px 0 rgba(64,64,64,0.19);
+            }
+            .clicked {
+                background: rgb(16, 40, 40);
+                box-shadow: 0 12px 16px 0 rgba(32,32,32,0.24), 0 17px 50px 0 rgba(32,32,32,0.19);
             }
             #content {
                 padding: 20px 0px;
@@ -26,17 +39,17 @@
             <h1>HTML Exercises</h1>
         </header>
         <nav>
-            <a href="exercises/00 - test/index.html">00 - Test</a> |
-            <a href="exercises/01 - textTags(part1)/index.html">01 - Text Tags (part 1)</a> |
-            <a href="exercises/02 - textTags(part2)/index.html">02 - Text Tags (part 2)</a> |
-            <a href="exercises/03 - lists/index.html">03 - Lists</a> |
-            <a href="exercises/04 - nestedList/index.html">04 - Nested List (challenge)</a> |
-            <a href="exercises/05 - links/index.html">05 - Links</a> |
-            <a href="exercises/06 - table/index.html">06 - Table</a> |
-            <a href="exercises/07 - form/index.html">07 - Form</a> |
-            <a href="exercises/08 - images/index.html">08 - Images</a> |
-            <a href="exercises/09 - slide/index.html">09 - Slide (challenge)</a> |
-            <a href="exercises/10 - video/index.html">10 - Video</a> |
+            <a href="exercises/00 - test/index.html">Test</a>
+            <a href="exercises/01 - textTags(part1)/index.html">Text Tags (part 1)</a>
+            <a href="exercises/02 - textTags(part2)/index.html">Text Tags (part 2)</a>
+            <a href="exercises/03 - lists/index.html">Lists</a>
+            <a href="exercises/04 - nestedList/index.html">Nested List (challenge)</a>
+            <a href="exercises/05 - links/index.html">Links</a>
+            <a href="exercises/06 - table/index.html">Table</a>
+            <a href="exercises/07 - form/index.html">Form</a>
+            <a href="exercises/08 - images/index.html">Images</a>
+            <a href="exercises/09 - slide/index.html">Slide (challenge)</a>
+            <a href="exercises/10 - video/index.html">Video</a>
         </nav>
         <section id="content"></section>
         <footer>
@@ -52,8 +65,15 @@
             }
 
             const content = document.getElementById('content')
-            document.querySelectorAll('a').forEach(link => {
+            const links = document.querySelectorAll('a')
+            let lastClicked = null
+            links.forEach(link => {
                 link.onclick = e => {
+                    if (lastClicked) {
+                        lastClicked.classList.remove('clicked')
+                    }
+                    lastClicked = link
+                    link.classList.add('clicked')
                     e.preventDefault()
                     fetch(link.href)
                         .then(resp => resp.text())
