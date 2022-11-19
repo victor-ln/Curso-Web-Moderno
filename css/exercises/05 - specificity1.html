@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Specificity</title>
+    <style>
+        /* https://developer.mozilla.org/pt-BR/docs/Web/CSS/Specificity */
+        /*
+            1. !important
+            2. specific selectors
+            3. last processed
+        */
+
+        p {
+            background-color: gray;
+        }
+        .look {
+            background-color: #555 !important;
+            border: dashed 5px;
+            font-size: 40px;
+            /**
+              * The !important rule will override ALL styling rules 
+              * for that specific property on that element!
+             */
+            padding: 20px !important;
+        }
+        /**
+          * The 'element.class' selector is used to select the specified element 
+          * with the the specified class.
+          */
+        p.look {
+            padding: 2px;
+            background: linear-gradient(to right, red, yellow);
+        }
+    </style>
+</head>
+
+<body>
+    <p class='look'>Look at this!!!!</p>
+</body>
+
+</html>
