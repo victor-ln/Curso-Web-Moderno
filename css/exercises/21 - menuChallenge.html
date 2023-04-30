@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Menu Challenge</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            background-color: lightgray;
+        }
+
+        .header {
+            background-color: #333;
+            border-bottom: 4px solid dodgerblue;
+            height: 80px;
+            box-sizing: content-box;
+        }
+
+        .logo {
+            height: 80px;
+            padding: 15px;
+            display: inline-block;
+        }
+
+        .logo img {
+            height: 100%;
+        }
+
+        .menu-toggle {
+            float: right;
+            color: #eee;
+            background-color: #555;
+            border: solid 1px #777;
+            border-radius: 4px;
+            padding: 10px 12px;
+            margin: 20px 15px;
+        }
+
+        .menu {
+            display: inline-block;
+            vertical-align: top;
+            height: 80px;
+            padding: 25px;
+        }
+
+        .menu ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            display: inline-block;
+        }
+
+        .header a {
+            text-decoration: none;
+            color: #eee;
+            font-size: 1.2em;
+        }
+
+        .menu a {
+            padding: 15px;
+        }
+
+        .menu a:hover,
+        .menu a.selected { /* Adding .selected class on Javascript */
+            background-color: dodgerblue;
+            color: #333;
+        }
+
+        .authentication {
+            float: right;
+            height: 80px;
+            padding: 25px;
+        }
+
+        .button {
+            border-radius: 30px;
+            padding: 10px 25px;
+            margin: 10px;
+        }
+
+        .highlight {
+            background-color: #f50a31;
+            color: white;
+        }
+
+        @media (min-width: 679px) {
+            .menu-toggle { display: none; }
+        }
+
+        @media (max-width: 680px) {
+            .menu { display: none; }
+        }
+
+        @media (max-width: 910px) {
+            .authentication { display: none; }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="#home">
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+            </a>
+        </div>
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <nav class="menu">
+            <ul>
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+                <li>
+                    <a href="#courses">Courses</a>
+                </li>
+                <li>
+                    <a href="#about">About</a>
+                </li>
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+        <aside class="authentication">
+            <a href="#login">Login</a>
+            <a href="#register" class="button highlight">Register</a>
+        </aside>
+    </header>
+
+    <script>
+        window.onhashchange = e => {
+            let oldURL = e.oldURL.split('#')[1]
+            let newURL = e.newURL.split('#')[1]
+            let oldLink = document.querySelector(`.menu a[href="#${oldURL}"]`);
+            let newLink = document.querySelector(`.menu a[href="#${newURL}"]`);
+            oldLink && oldLink.classList.remove('selected')
+            newLink.classList.add('selected')
+        }
+    </script>
+</body>
+
+</html>
