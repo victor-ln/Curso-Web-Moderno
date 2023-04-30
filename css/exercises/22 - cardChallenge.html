@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Card Challenge</title>
+    <style>
+        .course {
+            display: inline-block;
+            position: relative;
+            height: 300px;
+            width: 260px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            box-shadow: 0 12px 16px 0 rgba(64, 64, 64, 0.5), 0 17px 50px 0 rgba(64, 64, 64, 0.3);
+            margin: 5px 20px;
+            padding: 5px;
+        }
+
+        .course img {
+            height: 50%;
+            width: 100%;
+        }
+
+        .course-info {
+            padding: 10px;
+            height: 90px;
+            overflow: hidden;
+        }
+
+        .course-info h4 {
+            font-weight: normal;
+            font-size: 1.3em;
+            margin: 0px;
+        }
+
+        .course-price {
+            float: right;
+            padding: 10px;
+        }
+
+        .original-price {
+            color: firebrick;
+            text-decoration: line-through;
+        }
+
+        .new-price {
+            color: green;
+            font-weight: bold;
+            font-size: 1.4em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Card Challenge</h1>
+
+    <h2>Objective</h2>
+    <img src="http://files.cod3r.com.br/curso-web/card.png" height="340" alt="Objective">
+
+    <h2>Result</h2>
+    <div>
+        <div class="course">
+            <img src="http://files.cod3r.com.br/curso-web/curso1.jpg" />
+            <div class="course-info">
+                <h4>Docker: Containerized Applications Deployment and Management</h4>
+                <p>Prof. So-and-so</p>
+            </div>
+            <div class="course-price">
+                <span class="original-price">$80,00</span>
+                <span class="new-price">$50,00</span>
+            </div>
+        </div>
+        <div class="course">
+            <img src="http://files.cod3r.com.br/curso-web/curso2.jpg" />
+            <div class="course-info">
+                <h4>Web Javascript + Projects</h4>
+                <p>Prof. What's-his-name</p>
+            </div>
+            <div class="course-price">
+                <span class="original-price">$80,00</span>
+                <span class="new-price">$50,00</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
